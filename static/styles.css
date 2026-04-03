@@ -1,0 +1,321 @@
+:root {
+    --bg: #07111f;
+    --bg-soft: #0d1d31;
+    --panel: rgba(9, 24, 42, 0.88);
+    --panel-strong: rgba(11, 32, 56, 0.96);
+    --text: #ecf5ff;
+    --muted: #9db6cf;
+    --line: rgba(143, 184, 224, 0.16);
+    --accent: #ff8f3d;
+    --accent-soft: rgba(255, 143, 61, 0.14);
+    --signal: #39d0c1;
+    --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: Bahnschrift, "Segoe UI Variable", "Trebuchet MS", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(57, 208, 193, 0.22), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(255, 143, 61, 0.18), transparent 28%),
+        linear-gradient(145deg, #040a13 0%, #07111f 48%, #06101a 100%);
+    color: var(--text);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
+    pointer-events: none;
+}
+
+.app-shell {
+    width: min(1380px, calc(100% - 32px));
+    margin: 16px auto;
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 18px;
+    min-height: calc(100vh - 32px);
+}
+
+.sidebar,
+.main-panel {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+}
+
+.sidebar {
+    padding: 20px;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.main-panel {
+    border-radius: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.brand-card {
+    padding: 24px;
+    border-radius: 24px;
+    background:
+        linear-gradient(160deg, rgba(255, 143, 61, 0.17), transparent 56%),
+        linear-gradient(135deg, rgba(57, 208, 193, 0.18), rgba(13, 29, 49, 0.3));
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.brand-card h1,
+.hero h2 {
+    margin: 0;
+    line-height: 1.05;
+}
+
+.brand-card h1 {
+    font-size: 2rem;
+}
+
+.brand-copy,
+.panel-note,
+.hint,
+.message-meta {
+    color: var(--muted);
+}
+
+.eyebrow,
+.panel-title,
+.status-pill,
+.quick-btn,
+.secondary-btn,
+.primary-btn {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    font-size: 0.72rem;
+    color: var(--signal);
+    margin: 0 0 10px;
+}
+
+.panel {
+    padding: 18px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: var(--panel-strong);
+}
+
+.panel-title {
+    margin: 0 0 14px;
+    font-size: 0.8rem;
+    color: #d3e8fb;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.quick-btn,
+.secondary-btn,
+.primary-btn {
+    border: 1px solid transparent;
+    border-radius: 16px;
+    padding: 12px 14px;
+    font: inherit;
+    color: var(--text);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.quick-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.quick-btn:hover,
+.secondary-btn:hover,
+.primary-btn:hover {
+    transform: translateY(-1px);
+}
+
+.toggle-row {
+    display: flex;
+    gap: 10px;
+}
+
+.secondary-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.secondary-btn.active,
+.primary-btn {
+    background: linear-gradient(135deg, var(--accent), #ffb55f);
+    color: #09111a;
+    font-weight: 700;
+}
+
+.sample-list {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--muted);
+    display: grid;
+    gap: 8px;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 6px 2px 0;
+}
+
+.hero h2 {
+    font-size: clamp(1.9rem, 4vw, 3.4rem);
+    max-width: 11ch;
+}
+
+.status-pill {
+    padding: 12px 16px;
+    border-radius: 999px;
+    background: rgba(57, 208, 193, 0.12);
+    color: var(--signal);
+    border: 1px solid rgba(57, 208, 193, 0.3);
+    font-size: 0.74rem;
+    white-space: nowrap;
+}
+
+.chat-log {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 4px 4px 8px;
+}
+
+.message {
+    max-width: min(780px, 100%);
+    padding: 16px 18px;
+    border-radius: 22px;
+    border: 1px solid var(--line);
+    animation: rise 0.28s ease;
+    white-space: pre-wrap;
+    line-height: 1.55;
+}
+
+.message.user {
+    align-self: flex-end;
+    background: rgba(255, 143, 61, 0.12);
+    border-color: rgba(255, 143, 61, 0.28);
+}
+
+.message.assistant {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.message-meta {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.74rem;
+}
+
+.composer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    background: rgba(3, 12, 21, 0.9);
+}
+
+.composer textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 92px;
+    border: none;
+    outline: none;
+    font: inherit;
+    color: var(--text);
+    background: transparent;
+}
+
+.composer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 980px) {
+    .app-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero h2 {
+        max-width: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .app-shell {
+        width: min(100% - 16px, 100%);
+        margin: 8px auto;
+    }
+
+    .sidebar,
+    .main-panel {
+        border-radius: 22px;
+        padding: 16px;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .composer-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

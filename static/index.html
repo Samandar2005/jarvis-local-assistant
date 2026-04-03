@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jarvis Local Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand-card">
+                <p class="eyebrow">AI Control Room</p>
+                <h1>Jarvis Local Assistant</h1>
+                <p class="brand-copy">
+                    Python backend, web UI va kompyuter buyruqlari bilan ishlaydigan lokal yordamchi.
+                </p>
+            </div>
+
+            <div class="panel">
+                <p class="panel-title">Tez buyruqlar</p>
+                <div class="quick-grid">
+                    <button class="quick-btn" data-command="Brauzerni och va github.com saytiga kir">GitHub ochish</button>
+                    <button class="quick-btn" data-command="workspace ichidagi fayllarni ko'rsat">Fayllarni ko'rsat</button>
+                    <button class="quick-btn" data-command="create file demo.py with content print('Salom')">`demo.py` yaratish</button>
+                    <button class="quick-btn" data-command="run python script demo.py">`demo.py` ishga tushirish</button>
+                    <button class="quick-btn" data-command="notepadni och">Notepad</button>
+                    <button class="quick-btn" data-command="Nima qila olasan?">Yordam</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <p class="panel-title">Voice Mode</p>
+                <div class="toggle-row">
+                    <button id="voice-input-btn" class="secondary-btn">Tinglashni boshlash</button>
+                    <button id="voice-output-btn" class="secondary-btn active">Javobni o'qish</button>
+                </div>
+                <p class="panel-note">
+                    Brauzer qo'llasa, mikrofon orqali gapni matnga aylantiradi va javobni ovoz chiqarib o'qiydi.
+                </p>
+            </div>
+
+            <div class="panel">
+                <p class="panel-title">Misollar</p>
+                <ul class="sample-list">
+                    <li>`fayl yarat test.py`</li>
+                    <li>`run python script scripts/app.py`</li>
+                    <li>`read file README.md`</li>
+                    <li>`open browser https://openai.com`</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-panel">
+            <header class="hero">
+                <div>
+                    <p class="eyebrow">Desktop + Dev Assistant</p>
+                    <h2>Buyruq bering, yordamchi yo'lga qo'ysin</h2>
+                </div>
+                <div class="status-pill" id="health-pill">Ulanmoqda...</div>
+            </header>
+
+            <section id="chat-log" class="chat-log" aria-live="polite"></section>
+
+            <form id="chat-form" class="composer">
+                <textarea
+                    id="message-input"
+                    rows="3"
+                    placeholder="Masalan: brauzerni och, yangi Python fayl yarat, yoki kod bo'yicha savol ber..."
+                ></textarea>
+                <div class="composer-actions">
+                    <span class="hint">Shift+Enter yangi qatorda yozadi</span>
+                    <button type="submit" class="primary-btn">Yuborish</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="/static/app.js" defer></script>
+</body>
+</html>
