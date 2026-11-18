@@ -1,5 +1,10 @@
 # Jarvis Local Assistant
 
+## Overview in English
+
+A FastAPI starter for a local assistant with a browser chat interface and desktop automation actions.
+
+
 Bu loyiha kompyuter bilan ishlash, kod yozish va oddiy desktop avtomatlashtirish uchun lokal AI yordamchi skeletidir.
 
 ## Nima qila oladi
